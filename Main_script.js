@@ -23,23 +23,23 @@ sendSound.volume = 0.3;
 
 //firebase initailise--->
 const firebaseConfig = {
-  apiKey: "AIzaSyDr1-gy1vViN3ULBTp5cJUBZ1NxAeJHHRA",
-  authDomain: "userdata-e7a6c.firebaseapp.com",
-  databaseURL: "https://userdata-e7a6c-default-rtdb.firebaseio.com",
-  projectId: "userdata-e7a6c",
-  storageBucket: "userdata-e7a6c.appspot.com",
-  messagingSenderId: "1010009740328",
-  appId: "1:1010009740328:web:0961c85f6764ff0900111d",
+  apiKey: "AIzaSyBw0PH0pbur1pFP_-fTXmv2YN-19m5TD_c",
+  authDomain: "chat-98657.firebaseapp.com",
+  databaseURL: "https://chat-98657-default-rtdb.firebaseio.com",
+  projectId: "chat-98657",
+  storageBucket: "chat-98657.appspot.com",
+  messagingSenderId: "201602061907",
+  appId: "1:201602061907:web:c9c3c61d035f44391998a6"
 };
 
 const firebaseConfig_cr = {
-  apiKey: "AIzaSyDEllX7oXAp7VtJOGdzzspyNn_zBSg7E4A",
-  authDomain: "gochat-f7f8e.firebaseapp.com",
-  databaseURL: "https://gochat-f7f8e-default-rtdb.firebaseio.com",
-  projectId: "gochat-f7f8e",
-  storageBucket: "gochat-f7f8e.appspot.com",
-  messagingSenderId: "291053085887",
-  appId: "1:291053085887:web:e22b7a1e2f71ca75e0520a",
+  apiKey: "AIzaSyB8tyFqR_jAdVc_y7dUSrPeJKlnRAM5Tg0",
+  authDomain: "msgs-ef27b.firebaseapp.com",
+  databaseURL: "https://msgs-ef27b-default-rtdb.firebaseio.com",
+  projectId: "msgs-ef27b",
+  storageBucket: "msgs-ef27b.appspot.com",
+  messagingSenderId: "1021944904300",
+  appId: "1:1021944904300:web:211b95080eff77ab767649"
 };
 
 const firebaseApp_main = firebase.initializeApp(firebaseConfig);
