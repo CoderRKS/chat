@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="logo.png" class="never_mind" />
+    <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet" />
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+    <link rel="stylesheet" href="mobile.css" />
+    <title>GoChat</title>
+</head>
+
+<body>
+    <!-- main -->
+    <nav class="sidebar">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img class="my_img" id="user_img" src="logo.png" alt="" />
+                </span>
+
+                <div class="text logo-text">
+                    <span class="name" id="name_to_be_displayed">GoChat</span>
+                    <span class="profession" id="usertext" onload="text_call()"></span>
+                </div>
+            </div>
+            <i class="bx bx-chevron-right toggle" style="display: none"></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="bottom-content">
+                <li class="mode" id="modeS">
+                    <div class="sun-moon">
+                        <i class="bx bx-moon icon moon"></i>
+                        <i class="bx bx-sun icon sun"></i>
+                    </div>
+                    <span class="mode-text text" style="display: none;">Dark mode</span>
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+                <li class="logout" id="logoutBtn" onclick="outcheck(this.id)">
+                    <a href="#">
+                        <i class="bx bx-log-out icon" style="margin-left: -2px"></i>
+                    </a>
+                </li>
+                <div class="icon_more" id="icon_more" style="display: none;">
+                    <i class="bx bx-dots-vertical-rounded icon_more_icon" onclick="show_more()"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+    </div>
+    <!-- chat room  -->
+    <section class="home" id="home">
+        <div class="space"></div>
+        <div class="top_details" id="top_details" style="display: none">
+            <img src="" alt="pic" id="pro_pic_display" />
+            <span id="user_name_sender-reciver"></span>
+            <i class="bx bx-dots-vertical-rounded icon_more" onclick="show_more()"></i>
+        </div>
+
+        <div class="output" id="output" style="text-align: left; margin-bottom: 70px; display: none"></div>
+        <i class="bx bx-chevron-down down_icon" id="down_icon" onclick="scrollToBottom()"></i>
+        <div id="ad" class="output ad" style="margin-bottom: 70px; display: none;">
+            <img src="logo.png" alt=".logo" width="200px"
+                style="opacity: 0.7; filter: drop-shadow(2px 2px 5px grey)" /><br />
+            <span class="gradient-text">GoChat</span>
+            <p style="color: var(--text-dark-light)">Hey👋👋!!..</p>
+            <br />
+            <p style="color: var(--text-dark-light); width: 80%; margin: auto">
+                No Chats are selected, try finding the person in the Chats or Search
+                them...
+            </p>
+            <p style="color: var(--text-dark-light); width: 80%; margin: auto">
+                Can't find the Person?? Share the
+                <a href="" style="color: var(--text-link); text-decoration: none">Invite Link</a>
+            </p>
+        </div>
+
+        <div class="contain" id="contain" style="display: flex;">
+            <div class="microbtn" id="upload_btn">
+                <i class="bx bx-image-add icon icon_pin" onclick="clickattach()"></i>
+                <input type="file" name="files[]" id="files" />
+            </div>
+            <div class="send" style="display: flex" id="send_btn">
+                <input type="text" id="msg" class="input_msg" placeholder="Message" autocomplete="off" />
+                <div class="sendbtn" onclick="send()">
+                    <i class="bx bx-send icon send_icon"></i>
+                </div>
+            </div>
+            <div class="microbtn" id="btn_microphone">
+                <i class="bx bx-microphone icon icon_micro" id="rec_btn"></i>
+            </div>
+            <div class="record" id="record" style="display: none;">
+                <i class='bx bx-x icon_no' id="btn_discard"></i>
+                <p class="time_rec" id="time_rec">00:00</p>
+                <i class='bx bxs-circle icon_play' id="icon_play"></i>
+                <div class="main_voice" id="main_voice" style="display: block;">
+                    <div class="visualizer">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
+                    <div class="visualizer2">
+                        <div class="bar2"></div>
+                        <div class="bar2"></div>
+                        <div class="bar2"></div>
+                        <div class="bar2"></div>
+                        <div class="bar2"></div>
+                        <div class="bar2"></div>
+                        <div class="bar2"></div>
+                        <div class="bar2"></div>
+                        <div class="bar2"></div>
+                        <div class="bar2"></div>
+                        <div class="bar2"></div>
+                        <div class="bar2"></div>
+                        <div class="bar2"></div>
+                        <div class="bar2"></div>
+                        <div class="bar2"></div>
+                        <div class="bar2"></div>
+                    </div>
+                </div>
+                <input type="range" class="range_rec" id="range_rec" style="display: none;">
+                <div class="play-pause">
+                    <i class='bx bx-pause icon_pause'></i>
+                    <i class='bx bx-play icon_play_main' style="display: none;" id="play_rec_btn"></i>
+                </div>
+                <div class=" sendbtn_mic voicesend" id="pause_rec_btn">
+                    <i class="bx bx-send icon send_icon_mic"></i>
+                </div>
+            </div>
+
+
+            <!-- <div class="app">
+                <audio id="audio" controls></audio>
+            </div> -->
+
+
+        </div>
+    </section>
+    <div class="overlay" id="overlay">
+        <div class="popup" id="popup">
+            <h2>Upload this Image ...</h2>
+            <p>
+                Would you like to share this image, <br />
+                you can delet it also....
+            </p>
+            <img id="myimg" width="200px" height="auto" /><br />
+            <div class="send_pop">
+                <div class="sendbtn" id="upload" onclick="uploadImage()">
+                    <i class="bx bx-send icon send_icon"></i>
+                </div>
+                <div class="sendbtn" id="cancel" onclick="cancelImage()">
+                    <h2 class="text_cancel_btn">Cancel...</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay_del over_del" id="overlay_del">
+        <div class="popup_del pop_del" id="popup_del">
+            <h2 id="del_text">Delete This Chat with ?</h2>
+            <p>Messages would not me accessible...</p>
+            <div class="send_pop send_pop_del">
+                <div class="sendbtn" id="upload" onclick="delChat()">
+                    <i class="bx bx-check send_icon"></i>
+                </div>
+                <div class="sendbtn" id="cancel" onclick="cancelDelChat()">
+                    <h2 class="text_cancel_btn">Cancel...</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay overlay_more" id="overlay_more">
+        <div class="popup popup_more" id="popup_more">
+            <ul>
+                <li class="more clear" onclick="deleteChat()">
+                    <i class="bx bx-comment-x icon_m"></i>Clear Chat
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="overlay_user_id" id="overlay_user_id" style="display: block;">
+        <div class="popup_user_id" id="popup_user_id">
+            <div class="left_user">
+                <h2>Search User..</h2>
+                <div class="nav-link-user" id="user_search" style="display: flex">
+                    <i class="bx bx-arrow-back icon" onclick="showall()"></i>
+                    <input type="text" class="search" onkeyup="searchUsers()" id="search_box" placeholder="User Id"
+                        autocomplete="off" />
+                    <br />
+                </div>
+                <div class="user_output" id="user_output" style="display: block"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay overlay_img" id="overlay_img">
+        <div class="popup popup_img" id="popup_img">
+            <i class='bx bx-x icon_cut' onclick="close_popup_img()"></i>
+            <div class="align_img">
+                <img id="myimg_image" /><br />
+            </div>
+            <div></div>
+        </div>
+    </div>
+
+    <div class="overlay overlay_user" id="overlay_user">
+        <div class="popup popup_user" id="popup_user">
+            <h2 id="user_tag_text"></h2>
+            <div class="align_img">
+                <i class="bx bx-chevron-left"></i>
+                <img id="myimg_image" /><br />
+                <i class="bx bx-chevron-right"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay_del over_del" id="overlay_out">
+        <div class="popup_del pop_del" id="popup_out">
+            <h2 id="del_text">LogOut</h2>
+            <p>Are you sure you want to logout?</p>
+            <div class="send_pop send_pop_del">
+                <div class="sendbtn upload_format" onclick="logout()">
+                    <i class="bx bx-check send_icon"></i>
+                </div>
+                <div class="sendbtn" id="cancel" onclick="cancelLogout()">
+                    <h2 class="text_cancel_btn">Cancel...</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="roomDetailsSection" class="room-details-section" style="display: none">
+        <!-- Your room details content goes here -->
+    </section>
+
+    <section id="profile_sec" class="profile_sec" style="display: none">
+        <div class="container_img_user_profile">
+            <div class="overlay_user_profile">
+                <div class="card">
+                    <img id="my_pro_logo" src="logo.png" alt="" width="150px" height="150px"
+                        style="border-radius: 1000px" />
+                    <div id="my_pro_text" class="card_content">This is the content</div>
+                </div>
+                <h1 class="user_id_text">Your User Profile Card</h1>
+            </div>
+        </div>
+        <div class="profile_content" id="profile_content">
+            <h1 class="main_text_main" id="test_user_pro">Hello, Hello</h1>
+        </div>
+    </section>
+
+
+    <div class="top_sec"></div>
+    <div class="main" style="display: none;">
+    </div>
+    <div class="navigation" id="navigation">
+        <ul>
+            <li class="list" id="searchNav">
+                <a href="#" onclick="hideall()">
+                    <span class="icon"><ion-icon class="ionicon_icon" name="search-outline"></ion-icon></span>
+                    <span class="text">Search</span>
+                </a>
+            </li>
+            <li class="list" id="chatsNav">
+                <a href="#" onclick="showchats()">
+                    <span class="icon"><ion-icon class="ionicon_icon"
+                            name="chatbubble-outline"></ion-icon></ion-icon></span>
+                    <span class="text">Chats</span>
+                </a>
+            </li>
+            <li class="list" id="Nav">
+                <a href="#">
+                    <span class="icon"><ion-icon class="ionicon_icon" name="person-outline"></ion-icon></span>
+                    <span class="text">Profile</span>
+                </a>
+            </li>
+            <div class="indicator"></div>
+        </ul>
+    </div>
+
+    <!-- bg -->
+    <audio src="send.mp3" id="sendsound"></audio>
+    <audio src="recieve.mp3" id="getsound"></audio>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="mobile.js"></script>
+</body>
+<!-- <span class="loader"></span> -->
+</html>

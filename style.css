@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    /* user-select: none; */
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: grid;
+    place-items: center;
+    background: #363738;
+    text-align: center;
+}
+
+.grp {
+    max-width: 270px;
+}
+
+.content {
+    width: 330px;
+    height: 70%;
+    max-height: 500px;
+    display: grid;
+    place-items: center;
+    background: #3c3d3e;
+    border-radius: 10px;
+    box-shadow: -3px -3px 7px #05050573,
+        2px 2px 5px rgba(149, 165, 191, 0.288);
+}
+
+.content .text {
+    font-size: 33px;
+    font-weight: 600;
+    margin-bottom: 35px;
+    color: #dcdbdb;
+    transition: 0.3s;
+}
+
+.field {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    position: relative;
+}
+
+.field:nth-child(2) {
+    margin-top: 20px;
+}
+
+
+.field:nth-child(3) {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.field input {
+    height: 100%;
+    width: 100%;
+    padding-left: 45px;
+    outline: none;
+    border: none;
+    font-size: 18px;
+    background: #4b4c4e;
+    color: #d6d5d5;
+    border-radius: 25px;
+    box-shadow: inset 2px 2px 5px #57595f,
+        inset -5px -5px 10px #00000073;
+}
+
+.field input:focus {
+    box-shadow: inset 1px 1px 2px #494b50,
+        inset -1px -1px 2px #00000073;
+}
+
+.field span {
+    position: absolute;
+    color: #bfbfbf;
+    width: 50px;
+    line-height: 50px;
+}
+
+.field label {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 45px;
+    pointer-events: none;
+    color: #bfbfbf;
+    transition: 0.2s;
+}
+
+.field input:valid~label {
+    top: 0;
+    background-color: rgba(0, 0, 0, 0);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    padding-left: 15px;
+    padding-right: 15px;
+    left: 20px;
+    font-size: 13px;
+    border-radius: 100px;
+}
+
+button {
+    margin: 15px 0;
+    width: 100%;
+    height: 50px;
+    font-size: 18px;
+    line-height: 50px;
+    font-weight: 600;
+    background: #464748;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #c9c7c7;
+    box-shadow: 2px 2px 5px #505258,
+        -5px -5px 10px #00000073;
+    transition: 0.3s;
+}
+
+button:focus {
+    color: #34db9e;
+    box-shadow: inset 2px 2px 5px #505258,
+        inset -5px -5px 10px #00000073;
+}
+
+.sign-up {
+    margin: 10px 0;
+    color: #d6d6d6;
+    font-size: 16px;
+}
+
+.sign-up a {
+    color: #34db9e;
+    text-decoration: none;
+}
+
+.sign-up a:hover {
+    text-decoration: underline;
+}
+
+#confirm {
+    margin-top: -50px;
+    opacity: 0;
+}
+
+
+.container_edit {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.edit {
+    color: white;
+    font-size: 25px;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: right;
+    opacity: 0.8;
+    /* for demo purpose  */
+}
+
+.icon {
+    cursor: pointer;
+    font-size: 25px;
+    color: #ffeba7;
+}
+
+.pro_pic {
+    z-index: 9;
+    justify-content: center;
+    text-align: center;
+    /* for demo purpose  */
+}
+
+#btn_img_next_skip {
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    cursor: pointer;
+    color: white;
+}
+
+.showpass {
+    position: absolute;
+    top: 0;
+    right: 18px;
+    height: 48px;
+    font-size: 23px;
+    line-height: 51px;
+    text-align: right;
+    margin-left: 25px;
+    color: #d0d0d0;
+    cursor: pointer;
+}
+
+#message_alert {
+    margin-bottom: 20px;
+    color: red;
+}
+
+.checkbox-wrapper-31 {
+    position: relative;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-radius: 100px;
+    box-shadow: 2px 2px 5px #505258,
+        -5px -5px 10px #00000073;
+}
+
+.checkbox-wrapper-31 .background {
+    fill: #0dff0000;
+    transition: ease all 0.6s;
+    -webkit-transition: ease all 0.6s;
+}
+
+.checkbox-wrapper-31 .stroke {
+    fill: none;
+    stroke: #fff;
+    stroke-miterlimit: 10;
+    stroke-width: 2px;
+    stroke-dashoffset: 100;
+    stroke-dasharray: 100;
+    transition: ease all 0.6s;
+    -webkit-transition: ease all 0.6s;
+}
+
+.checkbox-wrapper-31 .check {
+    fill: none;
+    stroke: #fff;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2px;
+    stroke-dashoffset: 22;
+    stroke-dasharray: 22;
+    transition: ease all 0.6s;
+    -webkit-transition: ease all 0.6s;
+}
+
+.checkbox-wrapper-31 input[type=checkbox] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    margin: 0;
+    opacity: 0;
+    -appearance: none;
+    -webkit-appearance: none;
+}
+
+.checkbox-wrapper-31 input[type=checkbox]:hover {
+    cursor: pointer;
+}
+
+.checkbox-wrapper-31 input[type=checkbox]:checked+svg .background {
+    fill: #c9c7c700;
+}
+
+.checkbox-wrapper-31 input[type=checkbox]:checked+svg .stroke {
+    stroke-dashoffset: 0;
+}
+
+.checkbox-wrapper-31 input[type=checkbox]:checked+svg .check {
+    stroke-dashoffset: 0;
+}
+
+.check {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    margin-top: 15px;
+    padding-left: 53px;
+    margin-bottom: 5px;
+}
+
+.askme {
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: text-top;
+    color: #c9c7c7;
+}
+
+@media screen and (max-width: 350px) {
+    .content {
+        width: 100%;
+        height: 100%;
+        border-radius: 0px;
+        box-shadow: none;
+    }
+}

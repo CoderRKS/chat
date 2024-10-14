@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet" />
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+    <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet" /> -->
+
+    <!-- FireBase 🔥 -->
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+
+    <!-- Icons 😁 -->
+    <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+
+    <!-- Title with Icons 😎 -->
+    <link rel="icon" type="image/x-icon" href="logo.png" />
+    <link rel="stylesheet" href="style.css" />
+    <title>GoChat</title>
+</head>
+
+<body>
+    <div class="content">
+        <a onclick="skip()" style="text-decoration: none; display: none" id="btn_img_next_skip">Skip ></a>
+        <div class="grp">
+            <div class="text" id="mainText">Login Form</div>
+            <p id="message_alert" style="display: none">*User Data is Invalid</p>
+            <form action="#">
+                <div class="field" id="field1">
+                    <input type="text" required id="logemail" />
+                    <span class="fas fa-user"></span>
+                    <label>User ID</label>
+                </div>
+                <div class="field" id="field2">
+                    <input type="password" name="password" class="loginInput" required id="logpass" />
+                    <span class="fas fa-lock"></span>
+                    <label>Password</label>
+                    <i class="fas fa-eye showpass" id="show" onclick="showHidePass()"></i>
+                    <i class="fas fa-eye-slash showpass" id="hide" style="display: none" onclick="showHidePass()"></i>
+                </div>
+                <div class="field" id="confirm" name="password" style="display: none">
+                    <input type="password" required id="confirmPass" />
+                    <span class="fas fa-check"></span>
+                    <label>Confirm Password</label>
+                    <i class="fas fa-eye showpass" id="showc" onclick="showHidePassc()"></i>
+                    <i class="fas fa-eye-slash showpass" id="hidec" style="display: none" onclick="showHidePassc()"></i>
+                </div>
+
+                <div class="container_edit" id="container_edit" style="display: none">
+                    <div class="edit" id="edit">
+                        <i class="bx bx-edit icon"></i>
+                        <input type="file" name="files[]" id="files" style="display: none" />
+                    </div>
+                    <div class="pro_pic">
+                        <img src="https://cdn-icons-png.freepik.com/512/9706/9706583.png" width="200px" height="200px"
+                            style="background-color: #ffff; border-radius: 100px" id="my_img" alt="" /><br />
+                    </div>
+                </div>
+                <h2 id="userIdDisplay" style="display: none">User Id</h2>
+                <div class="check" style="display: flex;" id="checkbox_container">
+                    <div class="checkbox-wrapper-31">
+                        <input type="checkbox" id="rememberCheck"/>
+                        <svg viewBox="0 0 35.6 35.6">
+                            <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                            <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                            <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+                        </svg>
+                    </div>
+                    <p class="askme">Remember Me</p>
+                </div>
+                <button id="loginbtn" onclick="checkClick(this.id,event)">
+                    Login
+                </button>
+                <div class="sign-up" id="askloginsign">
+                    Not a member?
+                    <a onclick="signupformat()">signup now</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
